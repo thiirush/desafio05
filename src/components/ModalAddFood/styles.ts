@@ -1,5 +1,6 @@
-import styled from 'styled-components';
-import { Form as Unform } from '@unform/web';
+import styled from "styled-components";
+import { Form as Unform } from "@unform/web";
+import { InputHTMLAttributes } from "react";
 
 export const Form = styled(Unform)`
   padding: 48px 40px;
@@ -42,3 +43,34 @@ export const Form = styled(Unform)`
     }
   }
 `;
+
+interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+  type:
+    | "button"
+    | "checkbox"
+    | "color"
+    | "date"
+    | "datetime-local"
+    | "email"
+    | "file"
+    | "hidden"
+    | "image"
+    | "month"
+    | "number"
+    | "password"
+    | "radio"
+    | "range"
+    | "reset"
+    | "search"
+    | "submit"
+    | "tel"
+    | "text"
+    | "time"
+    | "url"
+    | "week";
+
+  name: string;
+  placeholder: string;
+}
+
+export const Input = styled.input<InputProps>``;

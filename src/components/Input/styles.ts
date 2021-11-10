@@ -1,6 +1,11 @@
-import styled, { css } from 'styled-components';
+import styled, { css } from "styled-components";
 
-export const Container = styled.div`
+interface StyledInputProps {
+  isFocused: boolean;
+  isFilled: boolean;
+}
+
+export const Container = styled.div<StyledInputProps>`
   display: flex;
   align-items: center;
 
@@ -21,14 +26,14 @@ export const Container = styled.div`
     line-height: 36px;
   }
 
-  ${props =>
+  ${(props) =>
     props.isFocused &&
     css`
       color: #ff9000;
       border-color: #ff9000;
     `}
 
-  ${props =>
+  ${(props) =>
     props.isFilled &&
     css`
       color: #ff9000;
@@ -48,4 +53,12 @@ export const Container = styled.div`
   svg {
     margin-right: 16px;
   }
+`;
+
+interface StyledIconProps extends React.Component {
+  size: number;
+}
+
+export const Icon = styled.svg<StyledIconProps>`
+  width: ${({ size }) => size} px;
 `;
