@@ -15,7 +15,7 @@ interface FoodSingleProps {
 
 interface FoodProps {
   handleDelete: (food: number) => void;
-  handleEditFood: (food: number) => void;
+  handleEditFood: (food: FoodSingleProps) => FoodSingleProps | any;
   food: FoodSingleProps;
 }
 
@@ -31,7 +31,7 @@ export function Food({ handleDelete, handleEditFood, food }: FoodProps) {
     setIsAvailable(!isAvailable);
   };
 
-  const setEditingFood = (food: number) => {
+  const setEditingFood = (food: FoodSingleProps) => {
     handleEditFood(food);
   };
 
@@ -56,7 +56,7 @@ export function Food({ handleDelete, handleEditFood, food }: FoodProps) {
           <button
             type="button"
             className="icon"
-            onClick={() => setEditingFood(food.id)}
+            onClick={() => setEditingFood(food)}
             data-testid={`edit-food-${food.id}`}
           >
             <FiEdit3 size={20} />
